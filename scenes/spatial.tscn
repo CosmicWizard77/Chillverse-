@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://7i76sftme2ru"]
+[gd_scene load_steps=7 format=3 uid="uid://7i76sftme2ru"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_megpo"]
 [ext_resource type="Resource" path="res://terrain/data.hterrain" id="2_yk1m5"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_sqjq6"]
+[ext_resource type="Texture2D" uid="uid://1cccrrcx5xvr" path="res://textures/terrain_textures/textures/rocky_terrain_diff_4k.jpg" id="4_dytc0"]
+[ext_resource type="Texture2D" uid="uid://cnlafyfffs44b" path="res://textures/terrain_textures/textures/rocky_terrain_disp_4k.png" id="5_3gwst"]
 
 [sub_resource type="Resource" id="Resource_uuabi"]
 script = ExtResource("3_sqjq6")
 mode = 0
-textures = [[], []]
+textures = [[ExtResource("4_dytc0"), ExtResource("5_3gwst")], [null, null]]
 
 [node name="Spatial" type="Node3D"]
 
@@ -26,5 +28,8 @@ render_layers = 1
 cast_shadow = 1
 shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
-shader_params/u_triplanar = null
+shader_params/u_triplanar = true
 shader_params/u_tile_reduction = null
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.479925, -0.867735, 0.129263, 0.325588, 0.312984, 0.892207, -0.814657, -0.386106, 0.432732, 249.429, 142.816, 182.617)
