@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://xaybej2ggtem"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_2wd2r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wkgnq"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_2wd2r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_wkgnq")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/CollisionShape3D"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CollisionShape3D/SpringArm3D"]
+current = true
